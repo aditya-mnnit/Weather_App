@@ -44,7 +44,7 @@ body {
 .card {
     background-color: #B9E5E8;
   border-radius: 15px;
-  padding: 40px;
+  padding: 20px;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   display: flex;
   flex-direction: column;

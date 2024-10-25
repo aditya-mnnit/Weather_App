@@ -6,6 +6,8 @@ const weatherIcon = document.querySelector(".weather-icon");
 const cities = ['delhi', 'mumbai', 'chennai', 'bengaluru', 'kolkata', 'hyderabad'];
 
 async function checkWeather(){
+  var x = Date();
+  document.querySelector(".update").innerHTML = "Last updated on: "+x;
   for(let i=0; i<6; i++){
     const response = await fetch(apiUrl + cities[i] + `&appid=${apiKey}`);
   
@@ -19,35 +21,34 @@ async function checkWeather(){
       //queryselector returns first element within document that matches specified selector, if no matches are found null is returned
       //innerHTML = gets/sets HTML markup contained within the element
       //in this case it will search for the class city, select the h2 element and replace the city name
-      document.querySelector("#"+cities[i]+"temp").innerHTML = Math.round(data.main.temp) + "°C";
-      document.querySelector("#"+cities[i]+"humidity").innerHTML = data.main.humidity + "%";
-      document.querySelector("#"+cities[i]+"wind").innerHTML = data.wind.speed + "km/h";
-    
-    //   if(data.weather[0].main == "Clouds")
-    //   {
-    //     weatherIcon.src = src = "images/clouds.png";
-    //   }
-    //   else if(data.weather[0].main == "Clear"){
-    //     weatherIcon.src = src = "images/clear.png";
-    //   }
-    //   else if(data.weather[0].main == "Rain"){
-    //     weatherIcon.src = src = "images/rain.png";
-    //   }
-    //   else if(data.weather[0].main == "Drizzle"){
-    //     weatherIcon.src = src = "images/drizzle.png";
-    //   }
-    //   else if(data.weather[0].main == "Mist"){
-    //     weatherIcon.src = src = "images/mist.png";
-    //   }
-    //   else if(data.weather[0].main == "Snow"){
-    //     weatherIcon.src = src = "images/snow.png";
-    //   }
-    //   else{
-    //     weatherIcon.src = src = "images/wind.png";
-    //   }
-  
-    //   document.querySelector(".weather").style.display = "block"; // block the display element -> display weather
-    //   document.querySelector(".error").style.display = "none"; 
+      document.querySelector("#"+cities[i]+"cond").innerHTML = data.weather[0].main;
+      document.querySelector("#"+cities[i]+"humidity").innerHTML = "Humidity: "+data.main.humidity + "%";
+      document.querySelector("#"+cities[i]+"wind").innerHTML = "Wind: "+data.wind.speed + "km/h";
+      document.querySelector("#"+cities[i]+"feelslike").innerHTML = "Feels Like : "+data.main.feels_like + "°C";
+      document.querySelector("#"+cities[i]+"feelslike").innerHTML = "Feels Like : "+data.main.feels_like + "°C";
+      var weatherIcon = document.getElementById(cities[i]+"img");
+      if(data.weather[0].main == "Clouds")
+      {
+        weatherIcon.src = src = "images/clouds.png";
+      }
+      else if(data.weather[0].main == "Clear"){
+        weatherIcon.src = src = "images/clear.png";
+      }
+      else if(data.weather[0].main == "Rain"){
+        weatherIcon.src = src = "images/rain.png";
+      }
+      else if(data.weather[0].main == "Drizzle"){
+        weatherIcon.src = src = "images/drizzle.png";
+      }
+      else if(data.weather[0].main == "Mist"){
+        weatherIcon.src = src = "images/mist.png";
+      }
+      else if(data.weather[0].main == "Snow"){
+        weatherIcon.src = src = "images/snow.png";
+      }
+      else{
+        weatherIcon.src = src = "images/wind.png";
+      }
     }
   }
  
