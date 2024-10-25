@@ -146,3 +146,9 @@ We welcome contributions! Please open issues or submit pull requests to suggest 
 ---
 
 This `README.md` offers comprehensive project documentation for your repository, helping others understand the purpose, setup, and usage of your weather monitoring application. Be sure to update placeholders like `your_openweathermap_api_key` with actual credentials in your `.env` file for a successful setup.
+---
+
+## Made with ❤️ by [Aditya Singh Yadav](https://github.com/aditya-mnnit) 🌧️☀️🌩️
+
+Happy Coding! 🚀✨
+
